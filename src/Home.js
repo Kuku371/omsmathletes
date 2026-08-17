@@ -173,10 +173,7 @@ export default function Home() {
               </h2>
 
               <p>
-                Oregon Middle School Mathletes is a place for
-                students to study interesting mathematics, solve
-                challenging problems together, and build skills
-                for competitions and future coursework.
+                Our mission at OMSM, founded by the leaders of the Oregon Math Circle, is to expose middle schoolers to competitive math skills not taught in the standard school curriculum. Our primary focus is to prepare students for the MATHCOUNTS and AMC competitions, trained by a staff with extensive experience. By introducing students to higher level mathematics, our student leaders are dedicated to providing a fun and engaging environment for all students.
               </p>
 
             </div>
