@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
+import MathDoodle from "./MathDoodle";
 import { events } from "./content";
 
 function formatEventDate(dateString) {
-  return new Date(`${dateString}T12:00:00`).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric"
-  });
+  return new Date(`${dateString}T12:00:00`).toLocaleDateString(
+    "en-US",
+    {
+      month: "short",
+      day: "numeric"
+    }
+  );
 }
 
 function MathField() {
@@ -15,41 +19,37 @@ function MathField() {
       text: "∑",
       className: "math-piece p1"
     },
-
     {
       text: "π",
       className: "math-piece p2"
     },
-
     {
       text: "∞",
       className: "math-piece p3"
     },
-
     {
       text: "∫",
       className: "math-piece p4"
     },
-
     {
-      text: "aₙ₊₃ = 6aₙ₊₂ − 7aₙ₊₁ + aₙ",
+      text: "x² + y² = r²",
       className: "math-piece p5 wide"
     },
-
-    {
-      text: "q = 2/15",
-      className: "math-piece p6"
-    },
-
     {
       text: "mod 7",
+      className: "math-piece p6"
+    },
+    {
+      text: "n choose k",
       className: "math-piece p7"
     }
   ];
 
   return (
-    <div className="math-field" aria-hidden="true">
-
+    <div
+      className="math-field"
+      aria-hidden="true"
+    >
       <svg
         className="math-orbit"
         viewBox="0 0 520 520"
@@ -73,7 +73,6 @@ function MathField() {
           {piece.text}
         </span>
       ))}
-
     </div>
   );
 }
@@ -94,14 +93,11 @@ export default function Home() {
 
   return (
     <>
-
       <section className="hero">
-
         <div className="aurora aurora--one" />
         <div className="aurora aurora--two" />
 
         <div className="wrap hero__grid">
-
           <Reveal className="hero__copy">
 
             <div
@@ -112,7 +108,7 @@ export default function Home() {
             </div>
 
             <p className="kicker">
-              Oregon • middle school mathematics
+              Oregon • Middle School Mathematics
             </p>
 
             <h1>
@@ -120,13 +116,13 @@ export default function Home() {
             </h1>
 
             <p className="hero__tagline">
-              Serious math. Unserious amounts of scratch paper.
+              A community for students who enjoy challenging mathematics.
             </p>
 
             <p className="hero__blurb">
-              A student math community for exploring ideas beyond the
-              classroom, solving hard problems together, and learning the
-              tricks that make impossible-looking questions start to crack.
+              OMSM brings middle school students together for
+              problem-solving sessions, mathematical exploration,
+              and competition preparation.
             </p>
 
             <div className="hero__actions">
@@ -135,14 +131,14 @@ export default function Home() {
                 className="button button--primary"
                 to="/events"
               >
-                See upcoming events
+                View Events
               </Link>
 
               <Link
                 className="button button--ghost"
                 to="/meetings"
               >
-                Meetings & resources
+                Meetings & Resources
               </Link>
 
             </div>
@@ -159,6 +155,7 @@ export default function Home() {
         </div>
       </section>
 
+
       <section className="home-section">
 
         <div className="wrap">
@@ -172,19 +169,20 @@ export default function Home() {
             <div className="section-heading">
 
               <h2>
-                Math that goes past the worksheet.
+                About Us
               </h2>
 
               <p>
-                We want a place where middle school students can encounter
-                elegant problems, unusual ideas, competition-style strategy,
-                and the occasional theorem that feels way above grade level
-                until somebody explains the right picture.
+                Oregon Middle School Mathletes is a place for
+                students to study interesting mathematics, solve
+                challenging problems together, and build skills
+                for competitions and future coursework.
               </p>
 
             </div>
 
           </Reveal>
+
 
           <div className="about-grid">
 
@@ -192,55 +190,88 @@ export default function Home() {
               className="feature-card"
               delay={40}
             >
+
               <span className="feature-card__symbol">
                 01
               </span>
 
-              <h3>Explore</h3>
+              <h3>
+                Learn
+              </h3>
 
               <p>
-                Number theory, combinatorics, geometry, algebra, games,
-                probability, proofs, and whatever else seems mathematically
-                worth derailing the meeting for.
+                Explore topics including number theory,
+                combinatorics, geometry, algebra, probability,
+                and proof.
               </p>
+
+              <MathDoodle
+                variant="graph"
+                className="feature-card__doodle"
+              />
+
             </Reveal>
+
 
             <Reveal
               className="feature-card"
               delay={100}
             >
+
               <span className="feature-card__symbol">
                 02
               </span>
 
-              <h3>Solve</h3>
+              <h3>
+                Solve
+              </h3>
 
               <p>
-                Work through problems collaboratively, compare approaches,
-                find the clean idea, and occasionally discover that the ugly
-                solution was secretly useful.
+                Work through challenging problems, compare
+                methods, and learn how to present clear
+                mathematical solutions.
               </p>
+
+              <MathDoodle
+                variant="notebook"
+                className="feature-card__doodle"
+              />
+
             </Reveal>
+
 
             <Reveal
               className="feature-card"
               delay={160}
             >
+
               <span className="feature-card__symbol">
                 03
               </span>
 
-              <h3>Compete</h3>
+              <h3>
+                Compete
+              </h3>
 
               <p>
-                Build speed, strategy, communication, and team problem-solving
-                skills without making competition the only reason to do math.
+                Practice competition strategy, teamwork, speed,
+                and accuracy through individual and team
+                problem sets.
               </p>
+
+              <MathDoodle
+                variant="geometry"
+                className="feature-card__doodle"
+              />
+
             </Reveal>
 
           </div>
+
         </div>
+
       </section>
+
 
       <section className="home-section home-section--events">
 
@@ -249,7 +280,7 @@ export default function Home() {
           <Reveal>
 
             <p className="section-label">
-              Upcoming
+              Events
             </p>
 
             <div className="section-heading section-heading--row">
@@ -257,11 +288,11 @@ export default function Home() {
               <div>
 
                 <h2>
-                  Next on the board
+                  Upcoming Events
                 </h2>
 
                 <p>
-                  Starter events for now — replace these in content.js.
+                  See the next scheduled OMSM meetings and workshops.
                 </p>
 
               </div>
@@ -270,12 +301,13 @@ export default function Home() {
                 className="text-link"
                 to="/events"
               >
-                All events →
+                View all events →
               </Link>
 
             </div>
 
           </Reveal>
+
 
           <div className="event-preview-grid">
 
@@ -283,7 +315,7 @@ export default function Home() {
 
               <Reveal
                 className="event-preview"
-                key={event.date}
+                key={event.date + event.title}
                 delay={index * 80}
               >
 
@@ -318,6 +350,7 @@ export default function Home() {
           </div>
 
         </div>
+
       </section>
 
     </>
