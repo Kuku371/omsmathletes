@@ -1,29 +1,32 @@
 import Reveal from "./Reveal";
+import MathDoodle from "./MathDoodle";
 import { events } from "./content";
 
 function EventCard({
   event,
   past = false
 }) {
-  const date = new Date(
-    `${event.date}T12:00:00`
-  );
+  const date =
+    new Date(`${event.date}T12:00:00`);
 
-  const month = date.toLocaleDateString(
-    "en-US",
-    {
-      month: "short"
-    }
-  );
+  const month =
+    date.toLocaleDateString(
+      "en-US",
+      {
+        month: "short"
+      }
+    );
 
-  const day = date.toLocaleDateString(
-    "en-US",
-    {
-      day: "numeric"
-    }
-  );
+  const day =
+    date.toLocaleDateString(
+      "en-US",
+      {
+        day: "numeric"
+      }
+    );
 
-  const year = date.getFullYear();
+  const year =
+    date.getFullYear();
 
   return (
     <article
@@ -49,6 +52,7 @@ function EventCard({
         </small>
 
       </div>
+
 
       <div className="event-card__body">
 
@@ -78,88 +82,114 @@ function EventCard({
   );
 }
 
+
 export default function Events() {
-  const now = new Date();
+  const now =
+    new Date();
 
-  const upcoming = [...events]
-    .filter(
-      (event) =>
-        new Date(
-          `${event.date}T23:59:59`
-        ) >= now
-    )
-    .sort(
-      (a, b) =>
-        a.date.localeCompare(b.date)
-    );
+  const upcoming =
+    [...events]
+      .filter(
+        (event) =>
+          new Date(
+            `${event.date}T23:59:59`
+          ) >= now
+      )
+      .sort(
+        (a, b) =>
+          a.date.localeCompare(
+            b.date
+          )
+      );
 
-  const past = [...events]
-    .filter(
-      (event) =>
-        new Date(
-          `${event.date}T23:59:59`
-        ) < now
-    )
-    .sort(
-      (a, b) =>
-        b.date.localeCompare(a.date)
-    );
+  const past =
+    [...events]
+      .filter(
+        (event) =>
+          new Date(
+            `${event.date}T23:59:59`
+          ) < now
+      )
+      .sort(
+        (a, b) =>
+          b.date.localeCompare(
+            a.date
+          )
+      );
 
   return (
     <div className="page">
 
       <div className="wrap">
 
-        <Reveal className="page-head">
+        <Reveal className="page-head page-head--with-doodle">
 
-          <p className="section-label">
-            Events
-          </p>
+          <div>
 
-          <h1>
-            What’s happening
-          </h1>
+            <p className="section-label">
+              Events
+            </p>
 
-          <p>
-            Upcoming and past sessions in a simple Math Circle-style format.
-            Edit the dates and descriptions in content.js and this page sorts
-            them automatically.
-          </p>
+            <h1>
+              Events
+            </h1>
+
+            <p>
+              Browse upcoming OMSM meetings and workshops,
+              along with a record of previous events.
+            </p>
+
+          </div>
+
+          <MathDoodle
+            variant="graph"
+            className="page-doodle"
+          />
 
         </Reveal>
+
 
         <section className="page-section">
 
           <Reveal>
+
             <h2 className="section-title">
-              Upcoming events
+              Upcoming Events
             </h2>
+
           </Reveal>
+
 
           <div className="event-list">
 
             {upcoming.length ? (
 
-              upcoming.map((event, index) => (
+              upcoming.map(
+                (event, index) => (
 
-                <Reveal
-                  key={
-                    event.date +
-                    event.title
-                  }
-                  delay={index * 60}
-                >
-                  <EventCard
-                    event={event}
-                  />
-                </Reveal>
+                  <Reveal
+                    key={
+                      event.date +
+                      event.title
+                    }
+                    delay={
+                      index * 60
+                    }
+                  >
 
-              ))
+                    <EventCard
+                      event={event}
+                    />
+
+                  </Reveal>
+
+                )
+              )
 
             ) : (
 
               <p className="empty-state">
-                No upcoming events posted yet.
+                No upcoming events are posted yet.
               </p>
 
             )}
@@ -168,34 +198,44 @@ export default function Events() {
 
         </section>
 
+
         <section className="page-section page-section--muted">
 
           <Reveal>
+
             <h2 className="section-title">
-              Past events
+              Past Events
             </h2>
+
           </Reveal>
+
 
           <div className="event-list">
 
             {past.length ? (
 
-              past.map((event, index) => (
+              past.map(
+                (event, index) => (
 
-                <Reveal
-                  key={
-                    event.date +
-                    event.title
-                  }
-                  delay={index * 50}
-                >
-                  <EventCard
-                    event={event}
-                    past
-                  />
-                </Reveal>
+                  <Reveal
+                    key={
+                      event.date +
+                      event.title
+                    }
+                    delay={
+                      index * 50
+                    }
+                  >
 
-              ))
+                    <EventCard
+                      event={event}
+                      past
+                    />
+
+                  </Reveal>
+
+                )
+              )
 
             ) : (
 
