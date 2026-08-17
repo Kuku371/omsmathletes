@@ -1,12 +1,24 @@
 import { useState } from "react";
 import Reveal from "./Reveal";
-import { faqGroups } from "./content";
+import MathDoodle from "./MathDoodle";
+import { faqItems } from "./content";
 
 function AccordionItem({
-  item
+  item,
+  itemKey,
+  openKey,
+  setOpenKey
 }) {
-  const [open, setOpen] =
-    useState(false);
+  const open =
+    openKey === itemKey;
+
+  const toggle = () => {
+    setOpenKey(
+      open
+        ? null
+        : itemKey
+    );
+  };
 
   return (
     <div
@@ -21,12 +33,7 @@ function AccordionItem({
         type="button"
         className="accordion-question"
         aria-expanded={open}
-        onClick={() =>
-          setOpen(
-            (value) =>
-              !value
-          )
-        }
+        onClick={toggle}
       >
 
         <span>
@@ -39,12 +46,15 @@ function AccordionItem({
 
       </button>
 
+
       <div className="accordion-answer">
 
         <div>
+
           <p>
             {item.answer}
           </p>
+
         </div>
 
       </div>
@@ -53,71 +63,68 @@ function AccordionItem({
   );
 }
 
+
 export default function FAQ() {
+  const [
+    openKey,
+    setOpenKey
+  ] = useState(null);
+
   return (
     <div className="page">
 
       <div className="wrap">
 
-        <Reveal className="page-head">
+        <Reveal className="page-head page-head--with-doodle">
 
-          <p className="section-label">
-            FAQ
-          </p>
+          <div>
 
-          <h1>
-            Questions, answered
-          </h1>
+            <p className="section-label">
+              FAQ
+            </p>
 
-          <p>
-            OMC-style grouped questions with a cleaner accordion treatment.
-            All text lives in content.js.
-          </p>
+            <h1>
+              Frequently Asked Questions
+            </h1>
+
+            <p>
+              Common questions about OMSM meetings
+              and participation.
+            </p>
+
+          </div>
+
+          <MathDoodle
+            variant="equation"
+            className="page-doodle"
+          />
 
         </Reveal>
 
-        <section className="page-section faq-groups">
 
-          {faqGroups.map(
-            (
-              group,
-              groupIndex
-            ) => (
+        <section className="page-section faq-section">
 
-              <Reveal
-                className="faq-group"
-                key={group.title}
-                delay={
-                  groupIndex *
-                  60
-                }
-              >
+          <Reveal className="faq-group">
 
-                <h2>
-                  {group.title}
-                </h2>
+            <div className="accordion">
 
-                <div className="accordion">
+              {faqItems.map(
+                (item, index) => (
 
-                  {group.items.map(
-                    (item) => (
+                  <AccordionItem
+                    key={item.question}
+                    item={item}
+                    itemKey={index}
+                    openKey={openKey}
+                    setOpenKey={setOpenKey}
+                  />
 
-                      <AccordionItem
-                        key={
-                          item.question
-                        }
-                        item={item}
-                      />
+                )
+              )}
 
-                    )
-                  )}
+            </div>
 
-                </div>
-
-              </Reveal>
-
-            )
-          )}
+          </Reveal>
 
         </section>
 
