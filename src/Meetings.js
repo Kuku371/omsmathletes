@@ -1,25 +1,26 @@
 import Reveal from "./Reveal";
+import MathDoodle from "./MathDoodle";
 import { recordings } from "./content";
 
 const actions = [
   {
-    label: "Sign up for a meeting",
+    label: "Register",
     description:
-      "Replace this with your Google Form or registration link.",
+      "Sign up for an upcoming OMSM meeting or workshop.",
     href: "#"
   },
 
   {
-    label: "Join the Discord",
+    label: "Discord",
     description:
-      "Replace this with the permanent server invite.",
+      "Join the OMSM Discord for announcements and discussion.",
     href: "#"
   },
 
   {
-    label: "Meeting updates",
+    label: "Meeting Updates",
     description:
-      "Replace this with a mailing list, calendar, or announcement page.",
+      "View announcements, schedule changes, and meeting information.",
     href: "#"
   }
 ];
@@ -30,23 +31,32 @@ export default function Meetings() {
 
       <div className="wrap">
 
-        <Reveal className="page-head">
+        <Reveal className="page-head page-head--with-doodle">
 
-          <p className="section-label">
-            Meetings
-          </p>
+          <div>
 
-          <h1>
-            Meetings & resources
-          </h1>
+            <p className="section-label">
+              Meetings
+            </p>
 
-          <p>
-            The practical side of the math larp: sign up, join the community,
-            and revisit old sessions when somebody claims “we definitely
-            covered this already.”
-          </p>
+            <h1>
+              Meetings
+            </h1>
+
+            <p>
+              Register for meetings, join the community,
+              and access recordings from previous sessions.
+            </p>
+
+          </div>
+
+          <MathDoodle
+            variant="notebook"
+            className="page-doodle"
+          />
 
         </Reveal>
+
 
         <section className="page-section">
 
@@ -81,7 +91,7 @@ export default function Meetings() {
                       : undefined
                   }
                 >
-                  Placeholder link ↗
+                  Open link ↗
                 </a>
 
               </Reveal>
@@ -92,7 +102,13 @@ export default function Meetings() {
 
         </section>
 
-        <section className="page-section">
+
+        <section className="page-section resource-section">
+
+          <MathDoodle
+            variant="nodes"
+            className="section-doodle section-doodle--right"
+          />
 
           <Reveal>
 
@@ -101,10 +117,11 @@ export default function Meetings() {
             </p>
 
             <h2 className="section-title">
-              Past meeting recordings
+              Meeting Recordings
             </h2>
 
           </Reveal>
+
 
           <div className="recording-list">
 
