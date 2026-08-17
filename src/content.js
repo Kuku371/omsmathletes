@@ -130,7 +130,7 @@ export const faqItems = [
       "What is Oregon Middle School Mathletes?",
 
     answer:
-      "Oregon Middle School Mathletes is a student math community for middle school students interested in problem solving, mathematical exploration, and competition preparation."
+      "OMSM prepares middle schoolers for MATHCOUNTS and the AMC by teaching advanced, out-of-curriculum mathematics in an engaging and supportive environment."
   },
 
   {
