@@ -2090,3 +2090,346 @@ h3 {
     transform: none;
   }
 }
+
+/* =========================================================
+   READABILITY + MATH ILLUSTRATIONS
+   ========================================================= */
+
+body {
+  font-size: 18px;
+  line-height: 1.68;
+}
+
+.nav__brand {
+  font-size: 1rem;
+}
+
+.nav__link {
+  font-size: 0.98rem;
+  padding: 8px 12px;
+}
+
+.hero__blurb,
+.section-heading p,
+.page-head > p:last-child {
+  font-size: 1.08rem;
+}
+
+.hero__tagline {
+  font-size:
+    clamp(
+      1.45rem,
+      2.6vw,
+      2.1rem
+    );
+}
+
+.feature-card p,
+.event-preview p,
+.action-card p,
+.event-card p,
+.staff-card__body > p:last-child,
+.accordion-answer p {
+  font-size: 0.98rem;
+}
+
+.event-preview__meta,
+.event-card__meta,
+.recording-card__top span,
+.recording-card p {
+  font-size: 0.88rem;
+}
+
+.kicker,
+.section-label,
+.staff-card__role {
+  font-size: 0.82rem;
+}
+
+.feature-card,
+.action-card {
+  min-height: 300px;
+}
+
+.feature-card {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 118px;
+}
+
+
+/* MATH ILLUSTRATIONS */
+
+.math-doodle {
+  width: 160px;
+  height: auto;
+
+  color:
+    color-mix(
+      in srgb,
+      var(--text-muted) 76%,
+      var(--purple)
+    );
+
+  fill: none;
+
+  stroke: currentColor;
+  stroke-width: 2.2;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  opacity: 0.84;
+}
+
+.math-doodle .doodle-paper {
+  fill:
+    color-mix(
+      in srgb,
+      var(--surface-solid) 78%,
+      transparent
+    );
+}
+
+.math-doodle .doodle-pencil {
+  fill:
+    color-mix(
+      in srgb,
+      var(--purple-soft) 60%,
+      transparent
+    );
+}
+
+.math-doodle .doodle-accent {
+  stroke: var(--green);
+  stroke-width: 3;
+}
+
+.math-doodle .doodle-grid {
+  opacity: 0.28;
+  stroke-width: 1;
+}
+
+.math-doodle .doodle-dot,
+.math-doodle .doodle-node {
+  fill: var(--purple);
+
+  stroke:
+    var(--surface-solid);
+
+  stroke-width: 2;
+}
+
+
+/* HOME CARD IMAGES */
+
+.feature-card__doodle {
+  position: absolute;
+
+  right: 8px;
+  bottom: -3px;
+
+  width: 145px;
+
+  opacity: 0.68;
+
+  transform:
+    rotate(-2deg);
+
+  transition:
+    transform 0.28s ease,
+    opacity 0.28s ease;
+}
+
+.feature-card:nth-child(2)
+.feature-card__doodle {
+  right: 13px;
+
+  width: 152px;
+
+  transform:
+    rotate(2deg);
+}
+
+.feature-card:nth-child(3)
+.feature-card__doodle {
+  right: 4px;
+
+  width: 150px;
+
+  transform:
+    rotate(-1deg);
+}
+
+.feature-card:hover
+.feature-card__doodle {
+  opacity: 0.95;
+
+  transform:
+    translateY(-4px)
+    rotate(0deg);
+}
+
+
+/* PAGE HEADER IMAGES */
+
+.page-head--with-doodle {
+  max-width: none;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 760px)
+    190px;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 52px;
+}
+
+.page-head--with-doodle
+> div
+> p:last-child {
+  max-width: 680px;
+
+  color:
+    var(--text-muted);
+
+  font-size: 1.08rem;
+}
+
+.page-doodle {
+  width: 180px;
+
+  justify-self: end;
+
+  opacity: 0.66;
+
+  animation:
+    page-doodle-float
+    7s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+@keyframes page-doodle-float {
+
+  from {
+    transform:
+      translateY(5px)
+      rotate(-1deg);
+  }
+
+  to {
+    transform:
+      translateY(-7px)
+      rotate(1deg);
+  }
+
+}
+
+
+/* MEETING DECORATION */
+
+.resource-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-doodle {
+  position: absolute;
+
+  width: 145px;
+
+  opacity: 0.16;
+
+  pointer-events: none;
+}
+
+.section-doodle--right {
+  top: 20px;
+  right: 10px;
+}
+
+
+/* FAQ */
+
+.faq-section {
+  max-width: 900px;
+}
+
+.faq-group {
+  padding:
+    10px 26px;
+}
+
+.accordion-question {
+  padding:
+    21px 2px;
+
+  font-size: 1.05rem;
+
+  font-weight: 520;
+}
+
+.accordion-answer p {
+  max-width: 760px;
+
+  padding-right: 20px;
+}
+
+
+/* SLIGHTLY LARGER CARD TITLES */
+
+.feature-card h3,
+.event-preview h3,
+.action-card h2,
+.event-card h3,
+.staff-card h2,
+.recording-card h3 {
+  font-size: 1.25rem;
+}
+
+
+/* FOOTER */
+
+.footer__inner {
+  font-size: 0.86rem;
+}
+
+.theme-toggle {
+  font-size: 0.84rem;
+}
+
+
+@media (max-width: 760px) {
+
+  body {
+    font-size: 17px;
+  }
+
+  .page-head--with-doodle {
+    grid-template-columns: 1fr;
+
+    gap: 5px;
+  }
+
+  .page-doodle {
+    width: 125px;
+
+    justify-self: start;
+
+    margin-top: -15px;
+
+    opacity: 0.42;
+  }
+
+  .feature-card {
+    padding-bottom: 110px;
+  }
+
+}
