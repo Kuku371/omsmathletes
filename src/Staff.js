@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import MathDoodle from "./MathDoodle";
 import { staff } from "./content";
 
 export default function Staff() {
@@ -7,65 +8,79 @@ export default function Staff() {
 
       <div className="wrap">
 
-        <Reveal className="page-head">
+        <Reveal className="page-head page-head--with-doodle">
 
-          <p className="section-label">
-            Staff
-          </p>
+          <div>
 
-          <h1>
-            The people behind the whiteboard
-          </h1>
+            <p className="section-label">
+              Staff
+            </p>
 
-          <p>
-            Placeholder leadership cards for now. Swap in real photos, names,
-            roles, and descriptions when the team is ready.
-          </p>
+            <h1>
+              Staff
+            </h1>
+
+            <p>
+              Meet the students and volunteers who organize
+              meetings, develop curriculum, and coordinate
+              OMSM events.
+            </p>
+
+          </div>
+
+          <MathDoodle
+            variant="geometry"
+            className="page-doodle"
+          />
 
         </Reveal>
+
 
         <section className="page-section">
 
           <div className="staff-grid">
 
-            {staff.map((person, index) => (
+            {staff.map(
+              (person, index) => (
 
-              <Reveal
-                className="staff-card"
-                key={person.name}
-                delay={index * 55}
-              >
-
-                <div
-                  className="staff-card__photo"
-                  aria-label="Photo placeholder"
+                <Reveal
+                  className="staff-card"
+                  key={`${person.role}-${index}`}
+                  delay={index * 55}
                 >
 
-                  <span>
-                    {person.initials}
-                  </span>
+                  <div
+                    className="staff-card__photo"
+                    aria-label="Photo placeholder"
+                  >
 
-                </div>
+                    <span>
+                      {person.initials}
+                    </span>
 
-                <div className="staff-card__body">
+                  </div>
 
-                  <p className="staff-card__role">
-                    {person.role}
-                  </p>
 
-                  <h2>
-                    {person.name}
-                  </h2>
+                  <div className="staff-card__body">
 
-                  <p>
-                    {person.description}
-                  </p>
+                    <p className="staff-card__role">
+                      {person.role}
+                    </p>
 
-                </div>
+                    <h2>
+                      {person.name}
+                    </h2>
 
-              </Reveal>
+                    <p>
+                      {person.description}
+                    </p>
 
-            ))}
+                  </div>
+
+                </Reveal>
+
+              )
+            )}
 
           </div>
 
